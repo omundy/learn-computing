@@ -93,11 +93,21 @@ markdown-to-slides topics/data-basics.md -o slideshow.html -w
 - Simple markdown requirements using [CommonMark spec](https://spec.commonmark.org/): [How to write markdown for marp](https://marpit.marp.app/markdown)
 - Documentation is pretty, and also pretty messy
 
-### Marp CLI tools
+```bash
+# install marl-cli
+brew install marp-cli
+# install dependencies
+npm i
+# start watching 
+grunt watch
+```
+
+### Marp CLI tool examples
 
 Using [marp CLI tools](https://github.com/marp-team/marp-cli)
 
 ```bash
+
 # Run tool in watch mode to convert `.md` file to `topics/data-basics.html`
 marp topics/data-basics.md -w --html true
 
