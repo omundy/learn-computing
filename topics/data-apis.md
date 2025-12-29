@@ -326,11 +326,12 @@ Continue exploring APIs with a browser, [REQBIN](https://reqbin.com/), or Postma
 - [JokeAPI](https://sv443.net/jokeapi/v2/) - Random jokes <a href="https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit" target="_blank">/joke</a>
 - [IP Geolocation API](https://freegeoip.app/) - Data about your present location <a href="https://freegeoip.app/json/" target="_blank">/json</a> 🔑
 - [Disney API](https://disneyapi.dev/docs) - 7438 [characters](https://api.disneyapi.dev/character)! 
-- ~~[Bored API](https://www.boredapi.com/documentation) - Get a new random <a href="http://www.boredapi.com/api/activity/" target="_blank">/activity</a>~~
-- ~~[CATAAS](https://cataas.com/#/) - Random images of cats <a href="https://cataas.com/cat/says/i%20love%20APIs?size=50&color=white" target="_blank">/cat/says</a>~~ (see comments)
+- [CATAAS](https://cataas.com/#/) - Random images of cats <a href="https://cataas.com/cat/says/i%20love%20APIs?size=50&color=white" target="_blank">/cat/says</a>
 
 
 <!-- APIs come and go... -->
+
+<!-- - [Bored API](https://www.boredapi.com/documentation) - Get a new random <a href="http://www.boredapi.com/api/activity/" target="_blank">/activity</a> -->
 
 <!-- - [faker.hook.io](https://fakerjsdocs.netlify.app/) uses [faker.js](https://github.com/marak/Faker.js/) - [name.findName&locale=de](http://faker.hook.io/?property=name.findName&locale=de), [hacker.phrase](http://faker.hook.io/?property=hacker.phrase), [companyName](http://faker.hook.io/?property=company.companyName) ([see list](http://faker.hook.io/?property=)) -->
 <!-- - [fakercloud](https://fakercloud.com/api) 🔑 -->
