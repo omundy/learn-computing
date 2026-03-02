@@ -77,11 +77,9 @@ The command line is a text interface for your computer. You type commands, and t
 
 ## About the command line
 
-The command line not that different from using a GUI (Graphical User Interface) with a mouse. It allows you to create and edit documents, or manage files and folders on your computer, just as you would with Windows Explorer or the MacOS Finder.
-
-In fact, when you use the GUI, your clicks and interactions with the "[pictures under glass](http://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/)" on screen are just sending the same commands to the operating system.
-
-Let's see what the command line can do that your mouse *cannot*...
+- The command line is not so different from a Graphical User Interface (GUI). You can edit documents, or manage files and folders on your computer, just as you would with Windows Explorer or the MacOS Finder.
+- In fact, when you use the GUI, your clicks and interactions with the "[pictures under glass](http://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/)" on screen are just sending the same commands to the operating system (DOS or Unix, respectively).
+- Follow the steps on below to see what the command line can do that your mouse *cannot*...
 
 
 ---
@@ -166,24 +164,25 @@ man id
 
 #### which
 
-👉 You can also combine commands. For example, [which](https://en.wikipedia.org/wiki/Which_(command)) returns the file path of other programs on your system.
+👉 [which](https://en.wikipedia.org/wiki/Which_(command)) returns the file path of other programs on your system.
 
 ```bash
 which whoami
 # -> /usr/bin/whoami
 ```
+<div class="caption slides-small">
+The hash symbol `#` is used for comments in bash scripting, and so is skipped by the shell when evaluating the input. These are displayed to show what the output will be.</div>
 
-The hash symbol `#` is used for comments in bash scripting, and so is skipped by the shell when evaluating the input. These are displayed to show what the output will be.
-
-👉 Special operators can create new commands from many. The double ampersand `&&` runs all of these.
+👉 You can also combine commands using a double ampersand `&&`.
 
 ```bash
 whoami && pwd && echo Hello world!
-# -> <outputs all three in series>
 # -> owenmundy
 # -> /Users/owenmundy
 # -> Hello world!
 ```
+
+
 
 
 
@@ -207,19 +206,22 @@ ls
 ls -a
 ```
 
+<details>
+<summary>Solution</summary>
+
+If you guessed "list" and "list, show all" you were correct!
+
+</details>
+
+
+
 ---
 
 ## ls
 
-If you guessed "list" and "list, show all" you were correct!
-
-[`ls`](https://en.wikipedia.org/wiki/Ls) lists the contents of your present "working directory", and the `-a` flag displays all files.
-
-
-The `a` displays all files, including those beginning with a `.`, which are hidden configuration files for software.
-
-
-Adding an `l` ("long form") flag displays the contents' file sizes and last edit dates.
+- [`ls`](https://en.wikipedia.org/wiki/Ls) lists the contents of your present "working directory".
+- The `-a` flag displays all files, including those beginning with a `.`, which are hidden configuration files for software.
+- Adding an `l` ("long form") flag displays the contents' file sizes and last edit dates.
 
 
 ---
@@ -380,6 +382,8 @@ Continue learning the command line:
 - Try out the autocomplete feature of the shell by typing the first three letters of a filename and pressing <kbd>Tab</kbd>. If a file or directory that starts with that name exists the shell will fill it in for you.
 - [16 Terminal commands every user should know](https://www.techrepublic.com/article/16-terminal-commands-every-user-should-know/)
 - [3 command line games for learning Bash the fun way](https://opensource.com/article/19/10/learn-bash-command-line-games)
+- [Command Line Basics](https://www.theodinproject.com/lessons/foundations-command-line-basics) Odin Project
+
 
 ---
 
