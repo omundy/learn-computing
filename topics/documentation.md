@@ -19,16 +19,20 @@ Presentation comments ...
 
 ### Contents
 
-1. [Introduction](#introduction)
-1. [About](#about)
-1. [Capture everything](##capture-everything)
-1. [Start a Google Doc](#iterate-iterate-iterate)
-1. [Screenshots and videos](#screenshots-and-videos)
-1. [How to make a screenshot](#how-to-make-a-screenshot) `5 min`
-1. [Source code](#source-code)
-1. [Collect it all](#collect-it-all)
-1. [Edit a video](#edit-a-video)
-1. [White paper](#white-paper)
+- [Documentation](#documentation)
+		- [Contents](#contents)
+	- [Introduction](#introduction)
+	- [About](#about)
+	- [Capture everything](#capture-everything)
+	- [Start a Google Doc](#start-a-google-doc)
+	- [Screenshots and videos](#screenshots-and-videos)
+	- [How to make a screenshot](#how-to-make-a-screenshot)
+	- [How to make a screencast](#how-to-make-a-screencast)
+	- [Create a video](#create-a-video)
+	- [Source code](#source-code)
+	- [Collect it all](#collect-it-all)
+	- [White paper](#white-paper)
+	- [White paper examples](#white-paper-examples)
 
 
 
@@ -155,17 +159,18 @@ Cancel screenshot | <kbd>Esc</kbd> (Escape) | <kbd>Esc</kbd> (Escape)
 ---
 
 
-## How to make a screencast
+## How make videos of your screen
 
-Capturing videos of your screen
-
-Name | Cost | Platform | Comments
+Name | Cost | Platform | About
 --- | --- | --- | ---
-[Quicktime](https://support.apple.com/guide/quicktime-player/record-your-screen-qtp97b08e666/mac) | Free | Mac | Choose File > New Screen Recording
+[Open Screen](https://openscreen.vercel.app/) | free | all | Professional screen recordings with zoom effects, annotations, and backgrounds
+[Quicktime](https://support.apple.com/guide/quicktime-player/record-your-screen-qtp97b08e666/mac) | free | Mac | Choose File > New Screen Recording
 [Screenflow](http://www.telestream.net/screenflow/overview.htm) | $129 | Mac | Amazing tool and editor. Can capture computer audio too.
-[Giphy Capture](https://giphy.com/apps/giphycapture) | free | any(?) | Create GIFs or MPGs of your screen
-Record screen with phone | $0 | Any | Don't do this please :-)
-<!-- ? | ? | Windows -->
+[Giphy Capture](https://giphy.com/apps/giphycapture) | free | all | Create GIFs or MPGs of your screen
+
+<div class="caption slides-small">
+	⚠️ Please don't record your screen with a phone camera.
+</div>
 
 
 
