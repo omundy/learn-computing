@@ -14,7 +14,7 @@ Tips for documenting your creative and technical work
 Presentation comments ...
 -->
 
-
+<!-- 
 ---
 
 ### Contents
@@ -26,14 +26,13 @@ Presentation comments ...
 	- [Capture everything](#capture-everything)
 	- [Start a Google Doc](#start-a-google-doc)
 	- [Screenshots and videos](#screenshots-and-videos)
-	- [How to make a screenshot](#how-to-make-a-screenshot)
-	- [How to make a screencast](#how-to-make-a-screencast)
+	- How to make a [screenshot](#how-to-make-a-screenshot) or [screencast](#how-to-make-a-screencast)
 	- [Create a video](#create-a-video)
 	- [Source code](#source-code)
 	- [Collect it all](#collect-it-all)
 	- [White paper](#white-paper)
 	- [White paper examples](#white-paper-examples)
-
+ -->
 
 
 
@@ -171,6 +170,12 @@ Name | Cost | Platform | About
 <div class="caption slides-small">
 	⚠️ Please don't record your screen with a phone camera.
 </div>
+
+<div class="caption slides-small">
+	⚠️ When recording your screen on Mac you may need to <a href="https://www.youtube.com/watch?v=ayupHGpCtx0">install and configure</a> special virtual audio drivers like <a href="https://existential.audio/blackhole/">Blackhole</a> in order to capture the audio output from your machine. 
+</div>
+
+
 
 
 
