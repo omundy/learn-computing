@@ -14,7 +14,7 @@ An introduction to APIs
 Presentation comments ...
 -->
 
-
+<!-- 
 ---
 
 
@@ -22,7 +22,6 @@ Presentation comments ...
 
 1. [Introduction](#introduction), [Required tools](#required-tools)
 1. [About APIs](#about-apis)
-1. [APIs are like search engines](#apis-are-like-search-engines)
 1. [Make an API request](#make-an-api-request)
 1. [Test an API in the browser](#test-an-api-in-the-browser)
 1. [National Weather Service API](#national-weather-service-api)
@@ -30,7 +29,7 @@ Presentation comments ...
 1. [Why are most APIs free?](#why-are-most-apis-free)
 1. [Keep practicing](#keep-practicing), [References](#references)
 1. [Use Postman to test APIs](#use-postman-to-test-apis)
-
+ -->
 
 ---
 
@@ -70,12 +69,20 @@ Complete the following to prepare for this module
 
 ---
 
-## Required tools
+## You already use APIs
 
-👉 Install these tools now to use them later in this presentation
+When you access dynamic code on the internet or use a mobile app, you're using an API.
 
-1. [JSON Formatter](https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa) browser extension
-1. (optional) [Postman](https://www.postman.com/) (account required)
+- [Google Fonts API](https://fonts.google.com/) provides custom typefaces for websites
+- [Leaflet](https://leafletjs.com/) uses tiles from [OpenStreetMap API](https://www.openstreetmap.org/) to display interactive maps and data
+- Social media apps ([Twitter](https://developer.twitter.com/en/docs/twitter-api), [Instagram](https://www.instagram.com/developer/), etc.) use APIs to retrieve and upload data
+
+<div class="caption slides-small">
+	*While "API" can also refer to a specification, or how a standard is exposed, this presentation discusses web services.
+</div>
+
+
+
 
 
 ---
@@ -84,27 +91,14 @@ Complete the following to prepare for this module
 
 An API is a software service that provides data or functionality, usually to other software.
 
-<img class="img-fluid" width="800" src="../assets/img/banner/banner-data-apis-diagram.png">
+<img class="img-fluid" width="600" src="../assets/img/banner/banner-data-apis-diagram.png">
 
 1. A **Client** (web page, mobile or desktop app) makes a **request**
 1. The **Server** processes the request, queries a **database** if needed
 1. Server sends **response**, and client does something with the **data**
 
 
----
 
-## API examples
-
-Any time you access the internet or use a mobile app, you're using an API.
-
-- [Google Fonts API](https://fonts.google.com/) provides custom typefaces for websites through a free web service
-- [Leaflet](https://leafletjs.com/) uses tiles from [OpenStreetMap API](https://www.openstreetmap.org/) to display interactive maps and data
-- Social media apps ([Twitter](https://developer.twitter.com/en/docs/twitter-api), [Instagram](https://www.instagram.com/developer/), etc.) use APIs to retrieve and upload data
-
-
-<div class="caption slides-small">
-	*While "API" can also refer to a specification, or how a standard is exposed, this presentation discusses web services.
-</div>
 
 
 ---
@@ -127,18 +121,23 @@ The key difference between "interfaces" they provide
 
 ---
 
-## Make an API request
+## Test an API request
 
-The method you use to send an API request depends on your context. For testing:
+The method you use to send an API request depends on your context. You can easily test:
 
-- Use a web browser
+- Using a web browser
 - Use an API-testing client like [REQBIN](https://reqbin.com/) or Postman
 - Use `wget` or `curl` on a command line
 
-If you are coding an application:
 
-- API creators often publish SDKs (development kits) to simplify requests
-- Most languages have built-in code for asynchronous requests, like Javascript's [`$.ajax()`](https://www.w3schools.com/jquery/jquery_ref_ajax.asp) or [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+<div class="caption slides-small">
+
+👉 Install the <a href="https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank">JSON Formatter</a> browser extension to help view the formatted JSON
+
+</div>
+
+
+
 
 
 
@@ -146,28 +145,29 @@ If you are coding an application:
 
 ## Test an API in the browser
 
-Any web browser can send a request to a public API via it's **endpoint** (the URL that provides specific data or functionality).
-
-This National Weather Service (NWS) API endpoint returns JSON data about its status: (click to view) 👉  <a href="https://api.weather.gov/" target="_blank">https://api.weather.gov/</a>
+A web browser can send a request to a public API via it's **endpoint** (the URL that provides specific data or functionality). The National Weather Service (NWS) API endpoint returns JSON data with our weather: (click to view) 👉  <a href="https://api.weather.gov/gridpoints/GSP/116,76/forecast" target="_blank">https://api.weather.gov/gridpoints/GSP/116,76/forecast</a>. To understand how that works, we look at the documentation...
 
 ```json
 {
-  "status": "OK"
+    ...
+    "temperature": 70,
+    "temperatureUnit": "F",
+    ...
 }
 ```
 
 <div class="caption slides-small">
 
-If you installed <a href="https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" target="_blank">JSON Formatter</a> then it will display formatted data like above.
+Of common software-independent, machine readable data exchange formats, [JSON](https://www.w3schools.com/js/js_json_intro.asp) is most popular (over [XML](https://www.w3schools.com/xml/xml_whatis.asp)) because it is lightweight and easy to use with Javascript.
 
 </div>
 
-Of common software-independent, machine readable data exchange formats, [JSON](https://www.w3schools.com/js/js_json_intro.asp) is most popular (over [XML](https://www.w3schools.com/xml/xml_whatis.asp)) because it is lightweight and easy to use with Javascript.
+
 
 
 ---
 
-## National Weather Service API
+## NWS API - 1 - Get Lat,Lng
 
 Their [documentation](https://www.weather.gov/documentation/services-web-api) says to get a forecast, we send a request with our current (<a href="https://en.wikipedia.org/wiki/Decimal_degrees" target="_blank">decimal</a>) latitude and longitude to the `/points` endpoint, formatted like:
 
@@ -175,7 +175,16 @@ Their [documentation](https://www.weather.gov/documentation/services-web-api) sa
 https://api.weather.gov/points/{latitude},{longitude}
 ```
 
-For <a href="https://www.latlong.net/place/davidson-nc-usa-10313.html" target="_blank">Davidson College</a> use 👉 <a href="https://api.weather.gov/points/35.499302,-80.848686" target="_blank">https://api.weather.gov/points/35.499302,-80.848686</a>
+The decimal Lat,Lng for <a href="https://www.latlong.net/place/davidson-nc-usa-10313.html" target="_blank">Davidson College</a> is `35.499302,-80.848686`
+
+
+
+
+---
+
+## NWS API - 2 - Get Gridpoint
+
+Now we can use this in the request to get our gridpoint 👉 <a href="https://api.weather.gov/points/35.499302,-80.848686" target="_blank">https://api.weather.gov/points/35.499302,-80.848686</a>
 
 The response includes several data points, like our grid office `gsp` and position `116,76`
 
@@ -185,37 +194,43 @@ The response includes several data points, like our grid office `gsp` and positi
 ```
 
 
+
+
+
 ---
 
-## National Weather Service API
+## NWS API - 3 - Get Forecast
 
-Using the `/gridpoints` endpoint we can send a new request to get the forecast
-
-👉 https://api.weather.gov/gridpoints/GSP/116,76/forecast
+Using the `/gridpoints` endpoint we can send a request to get the forecast 👉 https://api.weather.gov/gridpoints/GSP/116,76/forecast
 
 ```json
 "periods": [{
-        "name": "Today",
-        "temperature": 78,
-        "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
-        "shortForecast": "Mostly Sunny",
-    },{
-        "name": "Tonight",
-        "temperature": 62,
-        "icon": "https://api.weather.gov/icons/land/night/rain_showers,20?size=medium",
-        "shortForecast": "Slight Chance Rain Showers",
+    "name": "Today",
+    "temperature": 78,
+    "shortForecast": "Mostly Sunny",
+},{
+    "name": "Tonight",
+    "temperature": 62,
+    "shortForecast": "Slight Chance Rain Showers",
 }]
 ```
 
-The response includes the time, temperature, conditions, and links to icons:
+<div class="caption slides-small">
 
+The full response includes the time, temperature, conditions, and links to icons: 
 <img width="70px" src="../assets/img/data-apis/nws-day-sct.png"> <img width="70px" src="../assets/img/data-apis/nws-night-rain_showers,20.png">
+
+</div>
+
+
+
+
+
 
 
 ---
 
-
-## API authentication
+## 🔑 API authentication
 
 - The first example used free, open data from the U.S. government, but many APIs require **authentication**, which means you need to create an account and make requests with a special **key** to verify your identity.
 - API creators use authentication to prevent abuse. If you make too many requests your key may temporarily stop working (the NWS rate limit = [5 seconds](https://www.weather.gov/documentation/services-web-api)).
@@ -323,13 +338,16 @@ Continue exploring APIs with a browser, [REQBIN](https://reqbin.com/), or Postma
 
 - [Cat Fact API](https://catfact.ninja/) - <a href="https://catfact.ninja/fact" target="_blank">/fact</a>
 - [Random User Generator](https://randomuser.me/) - <a href="https://randomuser.me/api/" target="_blank">/api</a>
-- [JokeAPI](https://sv443.net/jokeapi/v2/) - Random jokes <a href="https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit" target="_blank">/joke</a>
 - [IP Geolocation API](https://freegeoip.app/) - Data about your present location <a href="https://freegeoip.app/json/" target="_blank">/json</a> 🔑
 - [Disney API](https://disneyapi.dev/docs) - 7438 [characters](https://api.disneyapi.dev/character)! 
 - [CATAAS](https://cataas.com/#/) - Random images of cats <a href="https://cataas.com/cat/says/i%20love%20APIs?size=50&color=white" target="_blank">/cat/says</a>
 
 
 <!-- APIs come and go... -->
+
+<!-- 
+- [JokeAPI](https://sv443.net/jokeapi/v2/) - Random jokes <a href="https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit" target="_blank">/joke</a> 
+-->
 
 <!-- - [Bored API](https://www.boredapi.com/documentation) - Get a new random <a href="http://www.boredapi.com/api/activity/" target="_blank">/activity</a> -->
 
@@ -361,6 +379,30 @@ API collections to explore. If authentication is required you need to register w
 - [Data / Functionality API Resource List](https://docs.google.com/spreadsheets/d/196CgwxBIkX5v6VeitOFWTYfd07OU_5A-HC4Gu7gy6xE/edit#gid=0) - My own list
 
 
+---
+
+## Using code to get API data
+
+
+- API creators often publish SDKs (development kits) to simplify requests
+- Most languages have built-in code for asynchronous requests, like Javascript's [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+<a href="https://www.postman.com/" target="_blank">Postman</a> (optional, account required)
+
+
+<!-- 
+[`$.ajax()`](https://www.w3schools.com/jquery/jquery_ref_ajax.asp) or 
+-->
+
+
+
+
+---
+
+## Specific APIs
+
+Examples from previous classes...
+
 
 
 
@@ -381,15 +423,13 @@ API collections to explore. If authentication is required you need to register w
 "creator": ["Jones, Leslie, 1886-1967"],
 "title": ["Kittens"],
 "subject": [
-    {"name": "Cats"},
-    {"name": "Baby animals"}
+    {"name": "Cats"}, {"name": "Baby animals"}
 ],
 "format": [
-    "Photographs",
-    "Glass negatives"
+    "Photographs", "Glass negatives"
 ],
 ```
-[link to above object](https://www.digitalcommonwealth.org/search/commonwealth:6682xj30d)
+👉 [link to above photo](https://www.digitalcommonwealth.org/search/commonwealth:6682xj30d)
 
 ---
 
@@ -427,12 +467,10 @@ API collections to explore. If authentication is required you need to register w
 - [/candIndByInd](https://www.opensecrets.org/api/?method=candIndByInd&output=doc) [📄](https://www.opensecrets.org/downloads/crp/CRP_Categories.txt) = `https://www.opensecrets.org/api/?method=candIndByInd&output=json&cid=N00032838&cycle=2018&ind=E1210&apikey=API_KEY` [🤨](http://www.opensecrets.org/industries/recips.php?Ind=E1210&amp;cycle=2022&amp;Mem=Y&amp;sortorder=U)
 
 ```json
-{ "response":{
+{ "response": {
         "cand_name":"Manchin, Joe", "cid":"N00032838", "cycle":"2018",
         "industry":"Coal mining", "chamber":"S", "party":"D", "state":"West Virginia",
-        "total":"40550", "indivs":"29050", "pacs":"11500", "rank":"6",
-        "origin":"Center for Responsive Politics", "source": "...", "last_updated":"06\/10\/19"
-    }
+        "total":"40550", "indivs":"29050", "pacs":"11500", "rank":"6" }
 }
 ```
 
